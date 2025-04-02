@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DownlyPro - Universal Video & Audio Downloader</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>DownlyPro</h1>
+      <nav>
+        <span>Universal Video & Audio Downloader</span>
+        <span class="premium"><a href="#">Go Premium</a></span>
+      </nav>
+      <p class="description">
+        Download music and videos from YouTube and more, in seconds. Free or
+        Premium. Desktop or Mobile. No limits.
+      </p>
+    </header>
+
+    <main>
+      <div class="form-container">
+        <input type="text" id="url" placeholder="📋 Paste your link here..." />
+        <select id="format">
+          <option value="audio">🎧 Audio (MP3)</option>
+          <option value="video">🎥 Video (MP4)</option>
+        </select>
+        <button id="download-btn">Download</button>
+      </div>
+
+      <div id="status"></div>
+
+      <div class="store-buttons">
+        <img
+          src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+          alt="App Store"
+        />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+          alt="Play Store"
+        />
+      </div>
+    </main>
+
+    <footer>
+      &copy; 2025 <strong>DownlyPro</strong>. Built for all screens. Powered by
+      Python + AI.
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+  </body>
+</html>
