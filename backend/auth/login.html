@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join DownlyPro</title>
+    <title>Login | DownlyPro</title>
     <style>
       body {
         font-family: Poppins, sans-serif;
-        background: #111;
-        color: #fff;
+        background-color: #111;
+        color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -16,7 +16,8 @@
       }
 
       h1 {
-        color: #00acee;
+        color: #ff6600;
+        font-size: 2.5rem;
       }
 
       form {
@@ -34,7 +35,7 @@
       }
 
       button {
-        background-color: #ff6600;
+        background-color: #00acee;
         color: white;
         font-weight: bold;
         cursor: pointer;
@@ -48,34 +49,47 @@
     </style>
   </head>
   <body>
-    <h1>Create Account</h1>
-    <form id="signupForm">
-      <input type="text" placeholder="Username" id="username" required />
-      <input type="email" placeholder="Email" id="email" required />
-      <input type="password" placeholder="Password" id="password" required />
-      <button type="submit">Sign Up</button>
+    <h1>Welcome Back</h1>
+
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Log In</button>
     </form>
+
     <div id="msg"></div>
 
     <script>
       document
-        .getElementById("signupForm")
+        .getElementById("loginForm")
         .addEventListener("submit", async (e) => {
           e.preventDefault();
-          const username = document.getElementById("username").value;
+
           const email = document.getElementById("email").value;
           const password = document.getElementById("password").value;
 
-          const res = await fetch("http://127.0.0.1:8000/auth/register", {
+          const formData = new URLSearchParams();
+          formData.append("username", email);
+          formData.append("password", password);
+
+          const res = await fetch("http://127.0.0.1:8000/auth/login", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ username, email, password }),
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: formData,
           });
 
-          const msg = document.getElementById("msg");
           const data = await res.json();
-          msg.textContent =
-            data.message || data.error || "Something went wrong.";
+          const msg = document.getElementById("msg");
+
+          if (res.ok) {
+            msg.textContent = "✅ Logged in successfully!";
+            localStorage.setItem("access_token", data.access_token);
+            // Optionally redirect or show user dashboard
+          } else {
+            msg.textContent = "❌ " + (data.detail || "Login failed");
+          }
         });
     </script>
   </body>
