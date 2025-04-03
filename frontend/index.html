@@ -22,6 +22,7 @@
       background: #000;
       color: white;
       padding: 20px;
+      position: relative;
     }
 
     header h1 {
@@ -31,26 +32,73 @@
     }
 
     header h1 span:first-child {
-      color: #007bff; /* Blue for Downly */
+      color: #007bff; /* Blue */
     }
 
     header h1 span:last-child {
-      color: #ff6600; /* Orange for Pro */
+      color: #ff6600; /* Orange */
     }
 
     nav {
       margin-top: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      color: #ddd;
+      text-decoration: none;
       font-weight: 600;
     }
 
-    nav a {
-      margin: 0 15px;
-      color: #ddd;
-      text-decoration: none;
+    nav ul li a:hover {
+      color: #ff6600;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .burger {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      right: 25px;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .burger {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        padding: 20px 0;
+        z-index: 999;
+      }
+
+      #menu-toggle:checked + .burger + nav ul {
+        display: flex;
+      }
     }
 
     .description {
@@ -119,18 +167,28 @@
       padding: 20px;
       font-size: 0.9rem;
     }
-
   </style>
 </head>
 <body>
+
   <header>
     <h1><span>Downly</span><span>Pro</span></h1>
+
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="burger">&#9776;</label>
+
     <nav>
-      <a href="#">Premium</a>
-      <a href="/sign-up.html">Sign-up</a>
-      <a href="/make-money.html">Make Money</a>
-      <a href="#">Contact</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/premium.html">Premium</a></li>
+        <li><a href="/sign-up.html">Sign-up</a></li>
+        <li><a href="/login.html">Login</a></li>
+        <li><a href="/make-money.html">Make Money</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/dashboard.html">Dashboard</a></li>
+      </ul>
     </nav>
+
     <p class="description">
       Convert and download videos and music from YouTube and more. 100% Free or Premium. No signup. No limits. Fast and safe.
     </p>
