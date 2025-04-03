@@ -1,217 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DownlyPro - Universal Downloader</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DownlyPro - Universal Downloader</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/727/727245.png" />
 
-    <!-- Google Fonts: Poppins -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600&display=swap');
 
-    <style>
-      body {
-        font-family: "Poppins", sans-serif;
-        background: #f8f9fb;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-        color: #222;
-      }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+      text-align: center;
+      color: #222;
+    }
 
-      header {
-        background: #fff;
-        padding: 30px 10px 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      }
+    header {
+      background: #000;
+      color: white;
+      padding: 20px;
+    }
 
-      h1 {
-        font-size: 64px;
-        margin: 0;
-      }
+    header h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 64px;
+      margin: 0;
+    }
 
-      .downly {
-        color: #007bff;
-      }
-      .pro {
-        color: #ff6600;
-      }
+    header h1 span:first-child {
+      color: #007bff; /* Blue for Downly */
+    }
 
-      nav {
-        margin-top: 10px;
-        font-size: 16px;
-      }
+    header h1 span:last-child {
+      color: #ff6600; /* Orange for Pro */
+    }
 
-      .description {
-        margin-top: 10px;
-        font-size: 16px;
-        max-width: 600px;
-        margin-inline: auto;
-        color: #555;
-      }
+    nav {
+      margin-top: 10px;
+      font-weight: 600;
+    }
 
-      .form-container {
-        margin: 40px auto 20px;
-        max-width: 600px;
-      }
+    nav a {
+      margin: 0 15px;
+      color: #ddd;
+      text-decoration: none;
+    }
 
-      input,
-      select,
-      button {
-        padding: 12px;
-        font-size: 16px;
-        margin: 6px;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-      }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-      button {
-        background: #007bff;
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
+    .description {
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 1.1rem;
+    }
 
-      button:hover {
-        background: #0056b3;
-      }
+    .form-container {
+      padding: 30px;
+    }
 
-      #status {
-        margin-top: 15px;
-        font-weight: bold;
-        color: #28a745;
-      }
+    input, select {
+      padding: 10px;
+      font-size: 1rem;
+      margin: 5px;
+      width: 250px;
+    }
 
-      .progress-bar {
-        height: 8px;
-        width: 0%;
-        background: linear-gradient(90deg, #007bff, #00ffdd);
-        border-radius: 4px;
-        transition: width 1.5s ease;
-        margin: 20px auto;
-        max-width: 80%;
-      }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
 
-      .legal {
-        font-size: 13px;
-        margin-top: 15px;
-        color: #777;
-      }
+    #status {
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-      .legal a {
-        color: #007bff;
-        text-decoration: none;
-      }
+    #progress-container {
+      width: 80%;
+      height: 8px;
+      background: #ccc;
+      margin: 15px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
 
-      .extra-links {
-        margin-top: 30px;
-        font-size: 15px;
-      }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #28a745;
+      transition: width 0.3s ease-in-out;
+    }
 
-      .extra-links a {
-        margin: 0 15px;
-        text-decoration: none;
-        color: #007bff;
-        font-weight: 500;
-      }
+    .store-buttons img {
+      height: 45px;
+      margin: 20px 10px;
+    }
 
-      footer {
-        background: #111;
-        color: #fff;
-        padding: 25px;
-        margin-top: 40px;
-        font-size: 14px;
-      }
-    </style>
-  </head>
+    .socials a {
+      margin: 0 10px;
+      font-size: 1.5rem;
+      color: #444;
+      text-decoration: none;
+    }
 
-  <body>
-    <header>
-      <h1><span class="downly">Downly</span><span class="pro">Pro</span></h1>
-      <nav>Universal Downloader for Music & Video — Fast, Free & Unlimited</nav>
-      <p class="description">
-        Download music & videos from YouTube and beyond — fast, ad-free, and
-        unlimited. Free or Premium. Any device.
-      </p>
-    </header>
+    footer {
+      margin-top: 50px;
+      background: #111;
+      color: #ccc;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
 
-    <main>
-      <div class="form-container">
-        <input type="text" id="url" placeholder="📋 Paste your link here..." />
-        <select id="format">
-          <option value="audio">🎧 Audio (MP3)</option>
-          <option value="video">🎥 Video (MP4)</option>
-        </select>
-        <button id="download-btn">Download</button>
-      </div>
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span>Downly</span><span>Pro</span></h1>
+    <nav>
+      <a href="#">Premium</a>
+      <a href="#">Make Money</a>
+      <a href="#">Contact</a>
+    </nav>
+    <p class="description">
+      Convert and download videos and music from YouTube and more. 100% Free or Premium. No signup. No limits. Fast and safe.
+    </p>
+  </header>
 
-      <div class="progress-bar" id="progress-bar"></div>
+  <main>
+    <div class="form-container">
+      <input type="text" id="url" placeholder="📋 Paste your link here..." />
+      <select id="format">
+        <option value="audio">🎧 Audio (MP3)</option>
+        <option value="video">🎥 Video (MP4)</option>
+      </select>
+      <button id="download-btn">Download</button>
+
       <div id="status"></div>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
 
-      <div class="legal">
+      <p style="font-size: 0.85rem; color: #777;">
         By using DownlyPro, you agree to our <a href="#">guidelines</a>.
-      </div>
+      </p>
+    </div>
 
-      <div class="extra-links">
-        <a href="#">💰 Make Money</a>
-        <a href="#">💎 Premium</a>
-        <a href="#">📬 Contact</a>
-      </div>
-    </main>
+    <div class="store-buttons">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"/>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Play Store"/>
+    </div>
 
-    <footer>
-      &copy; 2025 <strong>DownlyPro</strong> – Built with Python, FastAPI, and
-      💙 for the Internet.
-    </footer>
+    <div class="socials">
+      <a href="#"><strong>IG</strong></a>
+      <a href="#"><strong>TikTok</strong></a>
+      <a href="#"><strong>X</strong></a>
+    </div>
+  </main>
 
-    <script>
-      const btn = document.getElementById("download-btn");
-      const urlInput = document.getElementById("url");
-      const formatSelect = document.getElementById("format");
-      const status = document.getElementById("status");
-      const bar = document.getElementById("progress-bar");
+  <footer>
+    &copy; 2025 DownlyPro. All rights reserved. Built for speed, safety and simplicity.
+  </footer>
 
-      btn.addEventListener("click", async () => {
-        const url = urlInput.value.trim();
-        const format = formatSelect.value;
-        if (!url) return alert("Please paste a valid link!");
+  <script>
+    const btn = document.getElementById('download-btn');
+    const urlInput = document.getElementById('url');
+    const formatSelect = document.getElementById('format');
+    const status = document.getElementById('status');
+    const bar = document.getElementById('progress-bar');
 
-        bar.style.width = "30%";
-        status.textContent = "⏳ Starting download...";
+    btn.addEventListener('click', async () => {
+      const url = urlInput.value.trim();
+      const format = formatSelect.value;
+      if (!url) return alert("Please paste a valid link!");
 
-        try {
-          const endpoint = format === "audio" ? "/download" : "/download-video";
-          const formData = new FormData();
-          formData.append("url", url);
+      bar.style.width = "30%";
+      status.textContent = "⏳ Starting download...";
 
-          const res = await fetch(endpoint, {
-            method: "POST",
-            body: formData,
-          });
+      try {
+        const base = "https://downlypro.onrender.com";
+        const endpoint = format === 'audio' ? `${base}/download` : `${base}/download-video`;
+        const formData = new FormData();
+        formData.append('url', url);
 
-          if (!res.ok) throw new Error("❌ Server failed to respond.");
+        const res = await fetch(endpoint, {
+          method: "POST",
+          body: formData,
+        });
 
-          const blob = await res.blob();
-          const link = document.createElement("a");
-          link.href = URL.createObjectURL(blob);
-          link.download =
-            `downlypro_${format}.` + (format === "audio" ? "mp3" : "mp4");
-          link.click();
+        if (!res.ok) throw new Error("❌ Server failed to respond.");
 
-          status.textContent = "✅ Download complete!";
-          bar.style.width = "100%";
-        } catch (err) {
-          console.error(err);
-          status.textContent = "❌ Download failed.";
-          bar.style.width = "0%";
-        }
+        const blob = await res.blob();
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `downlypro_${format}.` + (format === 'audio' ? 'mp3' : 'mp4');
+        link.click();
 
-        setTimeout(() => {
-          bar.style.width = "0%";
-        }, 3000);
-      });
-    </script>
-  </body>
+        status.textContent = "✅ Download complete!";
+        bar.style.width = "100%";
+      } catch (err) {
+        console.error(err);
+        status.textContent = "❌ Download failed.";
+        bar.style.width = "0%";
+      }
+
+      setTimeout(() => {
+        bar.style.width = "0%";
+      }, 3000);
+    });
+  </script>
+</body>
 </html>
