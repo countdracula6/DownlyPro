@@ -3,70 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DownlyPro - Universal Video & Audio Downloader</title>
+    <title>DownlyPro - Universal Downloader</title>
 
-    <!-- Local Anton font -->
+    <!-- Google Fonts: Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-      @font-face {
-        font-family: "Anton";
-        src: url("fonts/Anton-Regular.ttf") format("truetype");
-        font-weight: normal;
-        font-style: normal;
-      }
-
       body {
-        font-family: Arial, sans-serif;
+        font-family: "Poppins", sans-serif;
+        background: #f8f9fb;
         margin: 0;
         padding: 0;
         text-align: center;
-        background: #f5f7fa;
         color: #222;
       }
 
       header {
-        padding: 20px;
         background: #fff;
-        border-bottom: 1px solid #ccc;
+        padding: 30px 10px 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       }
 
-      h1.logo {
-        font-family: "Anton", sans-serif;
+      h1 {
         font-size: 64px;
         margin: 0;
-        letter-spacing: -1px;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
       }
 
-      h1.logo .downly {
+      .downly {
         color: #007bff;
       }
-
-      h1.logo .pro {
+      .pro {
         color: #ff6600;
       }
 
       nav {
-        font-size: 16px;
         margin-top: 10px;
-      }
-
-      nav .premium a {
-        color: #ff6600;
-        font-weight: bold;
-        text-decoration: none;
-        margin-left: 10px;
+        font-size: 16px;
       }
 
       .description {
-        font-size: 15px;
+        margin-top: 10px;
+        font-size: 16px;
         max-width: 600px;
-        margin: 10px auto;
-        color: #444;
+        margin-inline: auto;
+        color: #555;
       }
 
       .form-container {
-        margin: 40px auto;
-        padding: 20px;
+        margin: 40px auto 20px;
+        max-width: 600px;
       }
 
       input,
@@ -74,25 +62,20 @@
       button {
         padding: 12px;
         font-size: 16px;
-        margin: 5px;
-        border-radius: 5px;
+        margin: 6px;
+        border-radius: 6px;
         border: 1px solid #ccc;
       }
 
       button {
-        background-color: #007bff;
+        background: #007bff;
         color: white;
         border: none;
         cursor: pointer;
-        transition: transform 0.2s ease;
       }
 
       button:hover {
-        background-color: #0056b3;
-      }
-
-      button:active {
-        transform: scale(0.96);
+        background: #0056b3;
       }
 
       #status {
@@ -107,33 +90,37 @@
         background: linear-gradient(90deg, #007bff, #00ffdd);
         border-radius: 4px;
         transition: width 1.5s ease;
-        margin: 20px auto 10px;
+        margin: 20px auto;
         max-width: 80%;
       }
 
-      .store-buttons img {
-        height: 40px;
-        margin: 10px;
+      .legal {
+        font-size: 13px;
+        margin-top: 15px;
+        color: #777;
       }
 
-      .social-icons {
-        margin-top: 20px;
+      .legal a {
+        color: #007bff;
+        text-decoration: none;
       }
 
-      .social-icons a {
-        margin: 0 10px;
-        display: inline-block;
+      .extra-links {
+        margin-top: 30px;
+        font-size: 15px;
       }
 
-      .social-icons img {
-        width: 30px;
-        height: 30px;
+      .extra-links a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: 500;
       }
 
       footer {
         background: #111;
         color: #fff;
-        padding: 20px;
+        padding: 25px;
         margin-top: 40px;
         font-size: 14px;
       }
@@ -142,16 +129,11 @@
 
   <body>
     <header>
-      <h1 class="logo">
-        <span class="downly">Downly</span><span class="pro">Pro</span>
-      </h1>
-      <nav>
-        <span>Universal Video & Audio Downloader</span>
-        <span class="premium"><a href="#">🌟 Go Premium</a></span>
-      </nav>
+      <h1><span class="downly">Downly</span><span class="pro">Pro</span></h1>
+      <nav>Universal Downloader for Music & Video — Fast, Free & Unlimited</nav>
       <p class="description">
-        Download music and videos from YouTube and more, in seconds. Free or
-        Premium. Desktop or Mobile. No limits.
+        Download music & videos from YouTube and beyond — fast, ad-free, and
+        unlimited. Free or Premium. Any device.
       </p>
     </header>
 
@@ -168,39 +150,20 @@
       <div class="progress-bar" id="progress-bar"></div>
       <div id="status"></div>
 
-      <div class="store-buttons">
-        <img
-          src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-          alt="App Store"
-        />
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-          alt="Play Store"
-        />
+      <div class="legal">
+        By using DownlyPro, you agree to our <a href="#">guidelines</a>.
       </div>
 
-      <div class="social-icons">
-        <a href="#"
-          ><img
-            src="https://cdn-icons-png.flaticon.com/512/174/174855.png"
-            alt="Instagram"
-        /></a>
-        <a href="#"
-          ><img
-            src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"
-            alt="TikTok"
-        /></a>
-        <a href="#"
-          ><img
-            src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
-            alt="Twitter / X"
-        /></a>
+      <div class="extra-links">
+        <a href="#">💰 Make Money</a>
+        <a href="#">💎 Premium</a>
+        <a href="#">📬 Contact</a>
       </div>
     </main>
 
     <footer>
-      &copy; 2025 <strong>DownlyPro</strong>. Built for speed. Powered by Python
-      + AI + Love ❤️
+      &copy; 2025 <strong>DownlyPro</strong> – Built with Python, FastAPI, and
+      💙 for the Internet.
     </footer>
 
     <script>
