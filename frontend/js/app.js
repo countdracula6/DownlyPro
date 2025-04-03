@@ -1,42 +1,45 @@
-document.getElementById("download-btn").addEventListener("click", () => {
+const API_BASE = "https://downlypro.onrender.com"; // ✅ your live backend
+
+document.getElementById("download-btn").addEventListener("click", async () => {
   const url = document.getElementById("url").value.trim();
   const format = document.getElementById("format").value;
   const status = document.getElementById("status");
 
   if (!url) {
-    status.innerText = "❗ Please paste a valid link.";
+    status.innerHTML = "❌ Please enter a link.";
     return;
   }
 
-  status.innerText = "⏳ Processing download...";
+  status.innerHTML = "⏳ Processing download...";
 
-  const endpoint =
-    format === "audio"
-      ? "http://127.0.0.1:8000/download"
-      : "http://127.0.0.1:8000/download-video";
+  try {
+    const endpoint = format === "audio" ? "/download" : "/download-video";
+    const formData = new FormData();
+    formData.append("url", url);
 
-  fetch(endpoint, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({ url }),
-  })
-    .then((res) => {
-      if (!res.ok) throw new Error("Server failed to respond.");
-      return res.blob();
-    })
-    .then((blob) => {
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download =
-        format === "audio" ? "downlypro_audio.mp3" : "downlypro_video.mp4";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      status.innerText = "✅ Download ready!";
-    })
-    .catch((err) => {
-      status.innerText = "❌ Error: " + err.message;
+    const response = await fetch(`${API_BASE}${endpoint}`, {
+      method: "POST",
+      body: formData,
     });
+
+    if (!response.ok) {
+      status.innerHTML = "❌ Download failed.";
+      return;
+    }
+
+    const blob = await response.blob();
+    const downloadUrl = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = downloadUrl;
+    a.download =
+      format === "audio" ? "downlypro_audio.mp3" : "downlypro_video.mp4";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    status.innerHTML = "✅ Download complete!";
+  } catch (error) {
+    console.error("❌ Error:", error);
+    status.innerHTML = "❌ Server failed to respond.";
+  }
 });
