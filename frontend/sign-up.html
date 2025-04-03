@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up – DownlyPro</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/727/727245.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    h1 {
+      color: #007bff;
+      font-size: 32px;
+    }
+    .form-box {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Create Your Account</h1>
+    <p>Start earning with DownlyPro today.</p>
+  </header>
+
+  <div class="form-box">
+    <form id="signup-form">
+      <input type="email" id="email" placeholder="Your email" required />
+      <input type="password" id="password" placeholder="Choose a password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById("signup-form");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const res = await fetch("https://downlypro.onrender.com/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: new URLSearchParams({ email, password })
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          status.textContent = "✅ Account created!";
+          form.reset();
+        } else {
+          status.textContent = `❌ ${result.error || result.detail || "Failed to sign up."}`;
+        }
+      } catch (err) {
+        status.textContent = "❌ Server error.";
+      }
+    });
+  </script>
+</body>
+</html>
