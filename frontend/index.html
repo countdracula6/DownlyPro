@@ -1,309 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DownlyPro - Universal Downloader</title>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/727/727245.png" />
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600&display=swap');
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f8f8;
-      text-align: center;
-      color: #222;
-    }
-
-    header {
-      background: #000;
-      color: white;
-      padding: 20px;
-      position: relative;
-    }
-
-    header h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: 64px;
-      margin: 0;
-    }
-
-    header h1 span:first-child {
-      color: #007bff; /* Blue */
-    }
-
-    header h1 span:last-child {
-      color: #ff6600; /* Orange */
-    }
-
-    nav {
-      margin-top: 10px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    nav ul li {
-      display: inline;
-    }
-
-    nav ul li a {
-      color: #ddd;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav ul li a:hover {
-      color: #ff6600;
-    }
-
-    .burger {
-      display: none;
-      font-size: 30px;
-      cursor: pointer;
-      position: absolute;
-      top: 25px;
-      right: 25px;
-    }
-
-    #menu-toggle {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .burger {
-        display: block;
-      }
-
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #000;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        padding: 20px 0;
-        z-index: 999;
-      }
-
-      #menu-toggle:checked + .burger + nav ul {
-        display: flex;
-      }
-    }
-
-    .description {
-      max-width: 600px;
-      margin: 20px auto;
-      font-size: 1.1rem;
-    }
-
-    .form-container {
-      padding: 30px;
-    }
-
-    input, select {
-      padding: 10px;
-      font-size: 1rem;
-      margin: 5px;
-      width: 250px;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    #status {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    #progress-container {
-      width: 80%;
-      height: 8px;
-      background: #ccc;
-      margin: 15px auto;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    #progress-bar {
-      height: 100%;
-      width: 0%;
-      background: #28a745;
-      transition: width 0.3s ease-in-out;
-    }
-
-    .store-buttons img {
-      height: 45px;
-      margin: 20px 10px;
-    }
-
-    .socials a {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      color: #444;
-      text-decoration: none;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #111;
-      color: #ccc;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1><span>Downly</span><span>Pro</span></h1>
-
-    <input type="checkbox" id="menu-toggle" />
-    <label for="menu-toggle" class="burger">&#9776;</label>
-
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/premium.html">Premium</a></li>
-        <li><a href="/sign-up.html">Sign-up</a></li>
-        <li><a href="/login.html">Login</a></li>
-        <li><a href="/make-money.html">Make Money</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/dashboard.html">Dashboard</a></li>
-      </ul>
-    </nav>
-
-    <p class="description">
-      Convert and download videos and music from YouTube and more. 100% Free or Premium. No signup. No limits. Fast and safe.
-    </p>
-  </header>
-
-  <main>
-    <div class="form-container">
-      <input type="text" id="url" placeholder="📋 Paste your link here..." />
-      <select id="format">
-        <option value="audio">🎧 Audio (MP3)</option>
-        <option value="video">🎥 Video (MP4)</option>
-      </select>
-      <button id="download-btn">Download</button>
-
-      <div id="status"></div>
-      <div id="progress-container">
-        <div id="progress-bar"></div>
-      </div>
-
-      <p style="font-size: 0.85rem; color: #777;">
-        By using DownlyPro, you agree to our <a href="#">guidelines</a>.
-      </p>
-    </div>
-
-    <div class="store-buttons">
-      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store"/>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Play Store"/>
-    </div>
-
-    <div class="socials">
-      <a href="#"><strong>IG</strong></a>
-      <a href="#"><strong>TikTok</strong></a>
-      <a href="#"><strong>X</strong></a>
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2025 DownlyPro. All rights reserved. Built for speed, safety and simplicity.
-  </footer>
-
-  <script>
-    const btn = document.getElementById('download-btn');
-    const urlInput = document.getElementById('url');
-    const formatSelect = document.getElementById('format');
-    const status = document.getElementById('status');
-    const bar = document.getElementById('progress-bar');
-
-    btn.addEventListener('click', async () => {
-      const url = urlInput.value.trim();
-      const format = formatSelect.value;
-      if (!url) return alert("Please paste a valid link!");
-
-      bar.style.width = "30%";
-      status.textContent = "⏳ Starting download...";
-
-      try {
-        const base = "https://downlypro.onrender.com";
-        const endpoint = format === 'audio' ? `${base}/download` : `${base}/download-video`;
-        const formData = new FormData();
-        formData.append('url', url);
-
-        const res = await fetch(endpoint, {
-          method: "POST",
-          body: formData,
-        });
-
-        if (!res.ok) throw new Error("❌ Server failed to respond.");
-
-        const blob = await res.blob();
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = `downlypro_${format}.` + (format === 'audio' ? 'mp3' : 'mp4');
-        link.click();
-
-        status.textContent = "✅ Download complete!";
-        bar.style.width = "100%";
-      } catch (err) {
-        console.error(err);
-        status.textContent = "❌ Download failed.";
-        bar.style.width = "0%";
-=======
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      DownlyPro - Online Free Download Instagram Reels, YouTube, X, TikTok and
-      More.
-    </title>
+    <title>DownlyPro - Universal Downloader</title>
     <link
       rel="icon"
       href="https://cdn-icons-png.flaticon.com/512/727/727245.png"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600&display=swap");
       * {
         box-sizing: border-box;
+        margin: 0;
+        padding: 0;
       }
       body {
         font-family: "Poppins", sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #f8f8f8;
+        background: #f5f5f5;
         color: #222;
-        text-align: center;
+        line-height: 1.6;
       }
       header {
         background: #000;
         color: white;
-        padding: 20px 10px;
+        padding: 20px;
+        text-align: center;
       }
       header h1 {
         font-family: "Anton", sans-serif;
-        font-size: 64px;
-        margin: 0;
+        font-size: 3.5rem;
       }
       header h1 span:first-child {
         color: #007bff;
@@ -312,74 +41,52 @@
         color: #ff6600;
       }
       nav {
-        margin: 15px auto 0;
+        margin-top: 10px;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 15px;
       }
       nav a {
-        color: #ddd;
+        color: #ccc;
+        margin: 10px 15px;
         text-decoration: none;
         font-weight: 600;
       }
       nav a:hover {
-        text-decoration: underline;
->>>>>>> c9f3b4e (💎 Improved index with premium login, how-to section, and affiliate block)
+        color: white;
       }
 
-      .description {
-        max-width: 600px;
-        margin: 20px auto;
-        font-size: 1.1rem;
-      }
-
-      main {
-        padding: 20px;
-      }
-
-      .form-container {
-        padding: 20px;
-        background: white;
-        max-width: 700px;
+      .container {
+        max-width: 900px;
         margin: auto;
-        border-radius: 8px;
-        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        padding: 30px 20px;
+        text-align: center;
       }
 
-      input,
-      select {
+      .form-container input,
+      .form-container select {
         padding: 10px;
-        font-size: 1rem;
         margin: 5px;
-        width: 90%;
-        max-width: 400px;
+        width: 260px;
+        font-size: 1rem;
       }
-
-      button {
-        padding: 10px 20px;
+      .form-container button {
+        padding: 10px 25px;
         font-size: 1rem;
         background: #007bff;
-        color: white;
         border: none;
-        margin-top: 10px;
+        color: white;
         cursor: pointer;
-      }
-
-      #status {
-        margin-top: 10px;
-        font-weight: bold;
       }
 
       #progress-container {
         width: 80%;
-        height: 8px;
+        height: 10px;
         background: #ccc;
         margin: 15px auto;
         border-radius: 10px;
         overflow: hidden;
       }
-
       #progress-bar {
         height: 100%;
         width: 0%;
@@ -387,27 +94,17 @@
         transition: width 0.3s ease-in-out;
       }
 
-      .premium-login {
-        margin: 30px auto;
-        max-width: 500px;
-        background: #fff6f0;
-        border-left: 5px solid #ff6600;
-        padding: 15px;
-      }
-
-      .premium-login input {
-        width: 90%;
-        max-width: 300px;
-      }
-
       .section {
-        padding: 30px 10px;
-        margin: 30px auto;
-        max-width: 800px;
+        background: white;
+        margin: 30px 0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
       }
 
       .section h2 {
         color: #007bff;
+        margin-bottom: 10px;
       }
 
       .store-buttons img {
@@ -415,23 +112,31 @@
         margin: 10px;
       }
 
+      .socials {
+        margin: 20px 0;
+      }
       .socials a {
         margin: 0 10px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: #444;
         text-decoration: none;
       }
 
       footer {
-        margin-top: 40px;
         background: #111;
         color: #ccc;
         padding: 20px;
         font-size: 0.9rem;
+        text-align: center;
       }
 
-      footer .socials {
-        margin-top: 10px;
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+        nav {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
@@ -441,18 +146,18 @@
       <nav>
         <a href="/">Home</a>
         <a href="/premium.html">Premium</a>
-        <a href="/sign-up.html">Sign-up</a>
+        <a href="/sign-up.html">Sign-Up</a>
         <a href="/login.html">Login</a>
         <a href="/make-money.html">Make Money</a>
         <a href="/contact.html">Contact</a>
       </nav>
-      <p class="description">
-        Convert and download videos, reels, music, and more from YouTube,
-        Instagram, X, and others. Free or Premium. Fast. Secure. Unlimited.
+      <p style="margin-top: 15px">
+        Convert and download from YouTube and more. Free & Premium. No limits.
+        Just fast.
       </p>
     </header>
 
-    <main>
+    <div class="container">
       <div class="form-container">
         <input type="text" id="url" placeholder="📋 Paste your link here..." />
         <select id="format">
@@ -460,45 +165,42 @@
           <option value="video">🎥 Video (MP4)</option>
         </select>
         <button id="download-btn">Download</button>
-
         <div id="status"></div>
         <div id="progress-container">
           <div id="progress-bar"></div>
         </div>
-
         <p style="font-size: 0.85rem; color: #777">
           By using DownlyPro, you agree to our <a href="#">guidelines</a>.
         </p>
       </div>
 
-      <div class="premium-login">
-        <h3>💎 Premium Members</h3>
+      <div class="section">
+        <h2>🔐 Premium Members</h2>
+        <p>Faster downloads. No ads. Early access. Legends & TTS tools.</p>
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
-        <button>Login to Premium</button>
+        <button>Login</button>
       </div>
 
       <div class="section">
-        <h2>📘 How to Use</h2>
-        <p>1. Copy your video/music/reel/image link</p>
-        <p>2. Paste in the field above</p>
-        <p>3. Select format (MP3/MP4)</p>
-        <p>4. Hit "Download" and enjoy!</p>
+        <h2>❓ How It Works</h2>
         <p>
-          <strong>⚡ Premium:</strong> Faster downloads, early access to
-          features, no ads or wait time.
+          Paste your link above. Choose audio or video. Click download. That’s
+          it!
+        </p>
+        <p>
+          We support YouTube, Instagram, Facebook, X (Twitter), TikTok, and
+          more.
         </p>
       </div>
 
-      <div class="section" style="background: #eefbe7">
-        <h2>💸 Become an Affiliate</h2>
+      <div class="section">
+        <h2>💰 Affiliate Program</h2>
         <p>
-          Refer friends and earn money. Get paid per download, upgrade, or ad
-          interaction.
+          Get paid when users download from your referral links. Earn 50% of
+          revenue, forever.
         </p>
-        <a href="/make-money.html"
-          ><button style="background: #28a745">Start Earning Now</button></a
-        >
+        <a href="/make-money.html">Become an Affiliate →</a>
       </div>
 
       <div class="store-buttons">
@@ -511,16 +213,16 @@
           alt="Play Store"
         />
       </div>
-    </main>
+
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">X</a>
+      </div>
+    </div>
 
     <footer>
-      &copy; 2025 DownlyPro. All rights reserved. Built for creators, by
-      creators.
-      <div class="socials">
-        <a href="#"><strong>IG</strong></a>
-        <a href="#"><strong>TikTok</strong></a>
-        <a href="#"><strong>X</strong></a>
-      </div>
+      &copy; 2025 DownlyPro — Built with 💻 by humans + AI. Join our mission!
     </footer>
 
     <script>
@@ -539,9 +241,11 @@
         status.textContent = "⏳ Starting download...";
 
         try {
-          const base = "https://downlypro.onrender.com";
           const endpoint =
-            format === "audio" ? `${base}/download` : `${base}/download-video`;
+            format === "audio"
+              ? "https://downlypro.onrender.com/download"
+              : "https://downlypro.onrender.com/download-video";
+
           const formData = new FormData();
           formData.append("url", url);
 
@@ -567,9 +271,7 @@
           bar.style.width = "0%";
         }
 
-        setTimeout(() => {
-          bar.style.width = "0%";
-        }, 3000);
+        setTimeout(() => (bar.style.width = "0%"), 3000);
       });
     </script>
   </body>
