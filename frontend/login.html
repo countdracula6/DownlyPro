@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up - DownlyPro</title>
+    <title>Login - DownlyPro</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
@@ -40,7 +40,6 @@
         color: #ff6600;
       }
 
-      input[type="text"],
       input[type="email"],
       input[type="password"] {
         width: 100%;
@@ -86,8 +85,7 @@
   <body>
     <div class="card">
       <div class="logo">Downly<span>Pro</span></div>
-      <form action="/auth/register" method="POST">
-        <input type="text" name="username" placeholder="Username" required />
+      <form action="/auth/login" method="POST">
         <input type="email" name="email" placeholder="Email" required />
         <input
           type="password"
@@ -95,16 +93,10 @@
           placeholder="Password"
           required
         />
-        <input
-          type="password"
-          name="confirm_password"
-          placeholder="Confirm Password"
-          required
-        />
-        <button type="submit">Create Account</button>
+        <button type="submit">Login</button>
       </form>
       <div class="footer-text">
-        Already have an account? <a href="login.html">Login</a>
+        Don't have an account? <a href="sign-up.html">Sign Up</a>
       </div>
     </div>
   </body>

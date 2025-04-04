@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DownlyPro | Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #1e1e2f, #27293d);
+        color: white;
+        min-height: 100vh;
+      }
+      header {
+        background: #111;
+        padding: 20px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      .dashboard {
+        max-width: 1000px;
+        margin: 30px auto;
+        background: #222;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      }
+      .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+      .tabs button {
+        background: #333;
+        border: none;
+        margin: 5px;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: background 0.3s;
+      }
+      .tabs button:hover,
+      .tabs button.active {
+        background: #007bff;
+      }
+      .tab-content {
+        display: none;
+        padding: 20px;
+        background: #2d2d44;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        background: #111;
+        border: 1px solid #555;
+        border-radius: 6px;
+        color: white;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+      .logout-btn {
+        margin-top: 20px;
+        background: #ff4444;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>⬇️ DownlyPro Dashboard</h1>
+    </header>
+
+    <div class="dashboard">
+      <div class="tabs">
+        <button class="tablink active" onclick="openTab('profile')">
+          👤 Profile
+        </button>
+        <button class="tablink" onclick="openTab('settings')">
+          ⚙️ Settings
+        </button>
+        <button class="tablink" onclick="openTab('affiliates')">
+          💸 Affiliates
+        </button>
+        <button class="tablink" onclick="logout()">🚪 Logout</button>
+      </div>
+
+      <div id="profile" class="tab-content active">
+        <h2>👤 Your Profile</h2>
+        <label>Full Name:</label>
+        <input type="text" placeholder="John Doe" />
+
+        <label>Email:</label>
+        <input type="email" placeholder="you@example.com" />
+
+        <label>Instagram:</label>
+        <input type="text" placeholder="@yourinsta" />
+
+        <label>TikTok:</label>
+        <input type="text" placeholder="@yourtiktok" />
+
+        <label>X (Twitter):</label>
+        <input type="text" placeholder="@yourxhandle" />
+
+        <button class="logout-btn" onclick="saveProfile()">
+          💾 Save Profile
+        </button>
+      </div>
+
+      <div id="settings" class="tab-content">
+        <h2>⚙️ Account Settings</h2>
+        <label>Change Password:</label>
+        <input type="password" placeholder="New Password" />
+
+        <label>Payment Method:</label>
+        <select>
+          <option>PIX</option>
+          <option>Bitcoin (BTC)</option>
+          <option>PayPal</option>
+          <option>Stripe</option>
+        </select>
+
+        <label>Payment Email / Address:</label>
+        <input type="text" placeholder="PIX Key, BTC Wallet, PayPal Email" />
+
+        <button class="logout-btn" onclick="saveSettings()">
+          💾 Save Settings
+        </button>
+      </div>
+
+      <div id="affiliates" class="tab-content">
+        <h2>💸 Your Affiliate Link</h2>
+        <p>Share and earn $ for every Premium subscriber!</p>
+        <input
+          type="text"
+          readonly
+          value="https://downlypro.com/?ref=yourcode"
+        />
+        <p><strong>Commission:</strong> 30% per sale 💰</p>
+      </div>
+    </div>
+
+    <script>
+      function openTab(tabName) {
+        const tabs = document.querySelectorAll(".tab-content");
+        const tablinks = document.querySelectorAll(".tablink");
+
+        tabs.forEach((tab) => tab.classList.remove("active"));
+        tablinks.forEach((link) => link.classList.remove("active"));
+
+        document.getElementById(tabName).classList.add("active");
+        event.currentTarget.classList.add("active");
+      }
+
+      function logout() {
+        alert("Logging out...");
+        window.location.href = "/login.html"; // redirect to login
+      }
+
+      function saveProfile() {
+        alert("✅ Profile saved!");
+      }
+
+      function saveSettings() {
+        alert("✅ Settings saved!");
+      }
+    </script>
+  </body>
+</html>
