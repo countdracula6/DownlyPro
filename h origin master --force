@@ -1,0 +1,23 @@
+* [33m642392a[m[33m ([m[1;36mHEAD[m[33m)[m 💡 Apply stashed updates
+* [33ma3d60e1[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Atualizar o index.html
+[31m|[m *   [33m5455c54[m[33m ([m[1;35mrefs/stash[m[33m)[m WIP on master: c9f3b4e 💎 Improved index with premium login, how-to section, and affiliate block
+[31m|[m [32m|[m[33m\[m  
+[31m|[m [32m|[m * [33mcd70879[m index on master: c9f3b4e 💎 Improved index with premium login, how-to section, and affiliate block
+[31m|[m [32m|[m[32m/[m  
+[31m|[m * [33mc9f3b4e[m[33m ([m[1;32mmaster[m[33m)[m 💎 Improved index with premium login, how-to section, and affiliate block
+[31m|[m[31m/[m  
+* [33mc5bd34a[m 🔧 Added vercel.json to support backend deployment
+* [33m51f1d5b[m ✅ Backend updated and ready for Vercel
+* [33mddcd105[m Atualizar o downly_backend.py
+* [33m484110c[m Atualizar o index.html
+* [33mdcc63c2[m Atualizar o index.html
+* [33mb876bb7[m Create sign-up.html
+* [33m4c58179[m Atualizar o index.html
+* [33m8bebc6b[m Create make-money.html
+* [33med76db4[m Atualizar o index.html
+* [33m665149c[m 💡 UI upgrade: Poppins, progress bar, links & legal note
+* [33m28532db[m 🚀 Updated index with font, progress bar, and socials
+* [33m897232d[m ✅ Connected frontend to live Render backend
+* [33m20cc568[m 🚀 Fix backend for Render deployment
+* [33m8ec1eae[m 📦 Add backend requirements.txt for Render
+* [33m0c57d29[m 🔥 First working version of DownlyPro
